@@ -1,0 +1,10 @@
+name: CICD Actions
+
+on: create
+
+jobs:
+  get-latest-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "Created a new branch"

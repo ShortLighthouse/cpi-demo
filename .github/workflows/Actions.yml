@@ -2,9 +2,18 @@ name: CICD Actions
 
 on: create
 
+env:
+  INTEGRATION_FLOW_ID: New_Flow2
+
 jobs:
   get-latest-version:
     runs-on: ubuntu-latest
     steps:
-      - name: echo a string
-        run: echo "Created a new branch"
+      - name: Simple JS Actions
+        id: greet
+        uses: actions/hello-world-javascript-action@v1
+        with:
+          who-to-greet: Anthony
+
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}"

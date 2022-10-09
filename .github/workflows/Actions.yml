@@ -35,6 +35,6 @@ jobs:
       - name: Extract version from http URL_RESPONSE
         id: extract_version
         run: |
-          VERSION=$(jq 'entry.propeties.Version' ${{URL_RESPONSE}})
+          VERSION=$(jq 'entry.propeties.Version' ${{env.URL_RESPONSE}})
 
           echo "VERSION: ${VERSION}"

@@ -22,6 +22,11 @@ jobs:
 
           echo "url_response= ${URL_RESPONSE}" >> $GITHUB_ENV
 
+      - name: Extract version from http URL_RESPONSE
+        id: extract_version
+        run: |
+          echo "GITHUB_ENV: ${"GITHUB_ENV}"    
+          
           VERSION=$(jq '.' << '${URL_RESPONSE'})
 
           echo "VERSION: ${VERSION}"

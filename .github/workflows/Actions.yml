@@ -4,7 +4,7 @@ on: push
 
 env:
   INTEGRATION_FLOW_ID: New_Flow2
-  URL_RESPONSE: ""
+  URL_RESPONSE: Fred
   VERSION: ""
 
 jobs:
@@ -23,5 +23,5 @@ jobs:
       - name: Extract version from http URL_RESPONSE
         id: extract_version
         run: |
-          echo "URL_RESPONSE in next step: ${steps.integration_flow_version.outputs.URL_RESPONSE}"
+          echo "URL_RESPONSE in next step: ${URL_RESPONSE}"
           

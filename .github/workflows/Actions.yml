@@ -20,8 +20,5 @@ jobs:
 
           echo "URL_RESPONSE: ${URL_RESPONSE}"
 
-      - name: Extract version from http URL_RESPONSE
-        id: extract_version
-        run: |
-          echo "URL_RESPONSE in next step: ${URL_RESPONSE}"
+          VERSION=$(jq '.' << ${URL_RESPONSE})
           

@@ -23,5 +23,5 @@ jobs:
       - name: Extract version from http URL_RESPONSE
         id: extract_version
         run: |
-          echo "URL_RESPONSE in next step: ${URL_RESPONSE}"
+          echo "URL_RESPONSE in next step: ${env.URL_RESPONSE}"
           

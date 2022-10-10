@@ -24,7 +24,7 @@ jobs:
       - name: Extract version from http URL_RESPONSE
         id: extract_version
         run: |
-          echo "url_response: ${{ env.INTEGRATION_FLOW_ID }}"    
+          echo "url_response: ${{ env.url_response }}"    
           
 
           

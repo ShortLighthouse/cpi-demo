@@ -23,5 +23,5 @@ jobs:
       - name: Extract version from http URL_RESPONSE
         id: extract_version
         run: |
-          echo "URL_RESPONSE in next step: ${steps.integration_flow_version.output.URL_RESPONSE}"
+          echo "URL_RESPONSE in next step: ${steps.integration_flow_version.outputs.URL_RESPONSE}"
           

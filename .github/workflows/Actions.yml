@@ -4,7 +4,6 @@ on: push
 
 env:
   INTEGRATION_FLOW_ID: New_Flow2
-  URL_RESPONSE: Fred
   VERSION: ""
 
 jobs:
@@ -20,14 +19,12 @@ jobs:
 
           echo "URL_RESPONSE: ${URL_RESPONSE}"
 
-          echo "url_response= ${URL_RESPONSE}" >> $GITHUB_ENV
+          echo "url_response=${URL_RESPONSE}" >> $GITHUB_ENV
 
       - name: Extract version from http URL_RESPONSE
         id: extract_version
         run: |
           echo "url_response: ${env.url_response}"    
           
-          VERSION=$(jq '.' << '${URL_RESPONSE'})
 
-          echo "VERSION: ${VERSION}"
           

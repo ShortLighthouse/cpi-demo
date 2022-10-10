@@ -8,18 +8,6 @@ env:
   VERSION: ""
 
 jobs:
-  get-latest-version:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Simple JS Actions
-        id: greet
-        uses: actions/hello-world-javascript-action@v1
-        with:
-          who-to-greet: Anthony
-
-      - name: Log Greeting Time
-        run: echo "${{ steps.greet.outputs.time }}"
-
   get-integration-flow-runtime:
     runs-on: ubuntu-latest
     steps:
@@ -31,4 +19,3 @@ jobs:
           -H "id: Query_Public_GitHub_Repositories")
 
           echo "URL_RESPONSE: ${URL_RESPONSE}"
-          echo "env.URL_RESPONSE: ${env.URL_RESPONSE}"

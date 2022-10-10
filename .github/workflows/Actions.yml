@@ -14,14 +14,14 @@ jobs:
       - name: Get version of Integration Flow deployed
         id: integration_flow_version
         run: |
-          $(curl --ssl-no-revoke -X GET \
+         URL_RESPONSE=$(curl --ssl-no-revoke -X GET \
           https://b574385atrial.it-cpitrial03-rt.cfapps.ap21.hana.ondemand.com/http/IntegrationRuntimeArtifacts/LatestVersion -H "Authorization: Basic c2ItZDEyOGRmNWMtYjFmZS00MTZmLTljNmYtYzJhOGE4MGUxYmE1IWI5NTQ4fGl0LXJ0LWI1NzQzODVhdHJpYWwhYjE5NjoyYzYwMmViZC0zZGU1LTQ4NmYtYjE4YS04ZWFiM2ZhMWFhZDgkcjNjVWdZS25PMHMwYS1Kb2pUQk1pXzdtbUVNVFZlVDg0YjhDT1dNbzQzMD0=" \
-          -H "id: Query_Public_GitHub_Repositories") >> ${URL_RESPONSE}
+          -H "id: Query_Public_GitHub_Repositories")
 
-          echo "URL_RESPONSE: $URL_RESPONSE"
+          echo "URL_RESPONSE: ${URL_RESPONSE}"
 
       - name: Extract version from http URL_RESPONSE
         id: extract_version
         run: |
-          echo "URL_RESPONSE in next step: $URL_RESPONSE"
+          echo "URL_RESPONSE in next step: ${URL_RESPONSE}"
           

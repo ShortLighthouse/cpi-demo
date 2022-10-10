@@ -24,7 +24,7 @@ jobs:
       - name: Extract version from http URL_RESPONSE
         id: extract_version
         run: |
-          echo "url_response: ${{ toString(env.url_response) }}"    
+          echo "url_response: '${{ env.url_response }}'"    
           
 
           

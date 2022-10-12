@@ -4,7 +4,7 @@ on: push
 
 env:
   INTEGRATION_FLOW_ID: New_Flow2
-  VERSION: ""
+  VERSION: " "
 
 jobs:
   get-integration-flow-runtime:

@@ -19,8 +19,7 @@ jobs:
 
           NEW_RESPONSE=$(jq '.' <(echo "${URL_RESPONSE}")) >> $GITHUB_ENV
 
-      - name: Check what you got
-        run: 'echo "version: ${env.NEW_RESPONSE}"'
+          echo $NEW_RESPONSE
 
 
    

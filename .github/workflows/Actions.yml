@@ -22,9 +22,14 @@ jobs:
           echo "url_response=${URL_RESPONSE}" >> $GITHUB_ENV
 
       - name: Extract version from http URL_RESPONSE
-        id: extract_version
-        run: |
-          VERSION=$(jq '.' << ${{ env.url_response }})   
+        uses: sergeysova/jq-action@v2
+        id: version
+        with:
+          cmd: 'jq . ${{ env.url_response }}'
+
+      - name: Show my version
+        run: 'echo "version ${{ steps.version.outputs.value }}"'    
+
           
 
           

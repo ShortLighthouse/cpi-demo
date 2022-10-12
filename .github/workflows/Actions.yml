@@ -28,7 +28,7 @@ jobs:
           cmd: '${{ env.url_response }} | jq' 
 
       - name: Show my version
-        run: 'echo "version ${{ steps.version.outputs.value }}"'
+        run: 'echo "version ${{ steps.version.outputs }}"'
 
 
 

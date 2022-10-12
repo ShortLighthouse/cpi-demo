@@ -17,7 +17,7 @@ jobs:
           https://b574385atrial.it-cpitrial03-rt.cfapps.ap21.hana.ondemand.com/http/IntegrationRuntimeArtifacts/LatestVersion -H "Authorization: Basic c2ItZDEyOGRmNWMtYjFmZS00MTZmLTljNmYtYzJhOGE4MGUxYmE1IWI5NTQ4fGl0LXJ0LWI1NzQzODVhdHJpYWwhYjE5NjoyYzYwMmViZC0zZGU1LTQ4NmYtYjE4YS04ZWFiM2ZhMWFhZDgkcjNjVWdZS25PMHMwYS1Kb2pUQk1pXzdtbUVNVFZlVDg0YjhDT1dNbzQzMD0=" \
           -H "id: Query_Public_GitHub_Repositories") >> $GITHUB_ENV
 
-          version < (jq '.' <(echo "${URL_RESPONSE}"))
+          $version < (jq '.' <(echo "${URL_RESPONSE}"))
 
    
 

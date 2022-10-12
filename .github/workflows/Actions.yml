@@ -25,10 +25,7 @@ jobs:
         uses: sergeysova/jq-action@v2
         id: version
         with:
-          cmd: 'jq . env.url_response'
-
-      - name: Show my version
-        run: 'echo "version ${{ steps.version.outputs.value }}"'    
+          cmd: '${{ env.url_response }} | jq'    
 
           
 

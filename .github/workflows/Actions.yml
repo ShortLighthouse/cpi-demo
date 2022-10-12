@@ -17,21 +17,8 @@ jobs:
           https://b574385atrial.it-cpitrial03-rt.cfapps.ap21.hana.ondemand.com/http/IntegrationRuntimeArtifacts/LatestVersion -H "Authorization: Basic c2ItZDEyOGRmNWMtYjFmZS00MTZmLTljNmYtYzJhOGE4MGUxYmE1IWI5NTQ4fGl0LXJ0LWI1NzQzODVhdHJpYWwhYjE5NjoyYzYwMmViZC0zZGU1LTQ4NmYtYjE4YS04ZWFiM2ZhMWFhZDgkcjNjVWdZS25PMHMwYS1Kb2pUQk1pXzdtbUVNVFZlVDg0YjhDT1dNbzQzMD0=" \
           -H "id: Query_Public_GitHub_Repositories") >> $GITHUB_ENV
 
-          echo "URL_RESPONSE: ${URL_RESPONSE}"
+          jq '.' <(echo "${URL_RESPONSE}")
 
-          echo "url_response=${URL_RESPONSE}" >> $GITHUB_ENV
-
-      - name: Extract version from http URL_RESPONSE
-        uses: sergeysova/jq-action@v2
-        id: version
-        with:
-          cmd: '${{ env.url_response }} | jq' 
-
-      - name: Show my version
-        run: 'echo "version ${{ toJson(steps.version.outputs) }}"'
-
-
-
-          
+   
 
           

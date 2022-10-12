@@ -25,7 +25,7 @@ jobs:
 
           echo "Fertangg"
 
-          echo "version = ${{ VERSION }}" >> $GITHUB_ENV
+          echo "version=${VERSION}" >> $GITHUB_ENV
 
 
    

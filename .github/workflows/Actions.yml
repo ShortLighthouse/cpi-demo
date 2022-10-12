@@ -19,7 +19,11 @@ jobs:
 
           NEW_RESPONSE=$(jq '.' <(echo "${URL_RESPONSE}")) >> $GITHUB_ENV
 
+          echo "Fred"
+
           echo $NEW_RESPONSE
+
+          echo "Fertangg"
 
 
    

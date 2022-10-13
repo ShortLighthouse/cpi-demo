@@ -58,7 +58,7 @@ jobs:
       - name: Base64 Decode to Zip File
         uses: kitek/decode-base64-into-file-action@1.0
         with:
-          encoded-value: ${{ ZIPPED_CONTENTS }}
+          encoded-value: ${ZIPPED_CONTENTS}
           destination-file: integration_flow.zip
 
       - name: List Files After Checkout

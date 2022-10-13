@@ -38,6 +38,11 @@ jobs:
           pwd
           ls
 
+      - name: Create and Verify New Tag with Integration Flow Version Number
+        run: |
+          git tag ${{ env.version }}
+          git tag
+
 
 
 

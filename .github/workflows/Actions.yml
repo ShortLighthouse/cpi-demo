@@ -55,7 +55,7 @@ jobs:
 
           echo "Fertangg"
 
-          echo "base64zip=${ZIPPED_CONTENTS" >> $GITHUB_ENV
+          echo "base64zip=${ZIPPED_CONTENTS}" >> $GITHUB_ENV
           
 
 

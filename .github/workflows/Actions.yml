@@ -49,22 +49,20 @@ jobs:
           https://b574385atrial.it-cpitrial03-rt.cfapps.ap21.hana.ondemand.com/http/IntegrationRuntimeArtifacts/ZippedContent -H "Authorization: Basic c2ItZDEyOGRmNWMtYjFmZS00MTZmLTljNmYtYzJhOGE4MGUxYmE1IWI5NTQ4fGl0LXJ0LWI1NzQzODVhdHJpYWwhYjE5NjoyYzYwMmViZC0zZGU1LTQ4NmYtYjE4YS04ZWFiM2ZhMWFhZDgkcjNjVWdZS25PMHMwYS1Kb2pUQk1pXzdtbUVNVFZlVDg0YjhDT1dNbzQzMD0=" \
           -H "id: Query_Public_GitHub_Repositories")
 
-          echo "Fred"
+          echo "Base 64 Representation of Zip File:"
 
           echo $ZIPPED_CONTENTS
-
-          echo "Fertangg"
 
       - name: Base64 Decode to Zip File
         uses: kitek/decode-base64-into-file-action@1.0
         with:
-          encoded-value: ${{ ZIPPED_CONTENTS }}
+          encoded-value: ${ZIPPED_CONTENTS}
           destination-file: integration_flow.zip
 
       - name: List Files And Their Sizes After Checkout
         run: |
           pwd
-          ls -lah
+          ls -l
           
       - name: Unzip the Zip File
         run: 7z e integration_flow.zip

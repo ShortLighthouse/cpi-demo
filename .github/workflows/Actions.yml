@@ -55,25 +55,25 @@ jobs:
 
           echo "base64String=${ZIPPED_CONTENTS}" >> $GITHUB_ENV
 
-      - name: Base64 Decode to Zip File
-        uses: kitek/decode-base64-into-file-action@1.0
-        with:
-          encoded-value: ${{ env.base64String }}
-          destination-file: integration_flow.zip
+#      - name: Base64 Decode to Zip File
+#        uses: kitek/decode-base64-into-file-action@1.0
+#        with:
+#          encoded-value: ${{ env.base64String }}
+#          destination-file: integration_flow.zip
 
 
-      - name: List Files And Their Sizes After Checkout
-        run: |
-          pwd
-          ls -l
+#      - name: List Files And Their Sizes After Checkout
+#        run: |
+#          pwd
+#          ls -l
           
-      - name: Unzip the Zip File
-        run: 7z e integration_flow.zip
+#      - name: Unzip the Zip File
+#        run: 7z e integration_flow.zip
 
-      - name: List Files After Unzip
-        run: |
-          pwd
-          ls  
+#      - name: List Files After Unzip
+#        run: |
+#          pwd
+#          ls  
           
 
 

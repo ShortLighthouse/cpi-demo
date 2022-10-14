@@ -36,7 +36,7 @@ jobs:
 
       - name: Create and Verify New Tag with Integration Flow Version Number
         run: |
-          git tag ${{ env.version }}
+          git tag -a ${{ env.version }} "CPI Integration Flow Version"
 
       - name: Get Zipped Contents of Integration Flow in Base64 Encoded String
         run: |

@@ -61,10 +61,10 @@ jobs:
           encoded-value: ${ZIPPED_CONTENTS}
           destination-file: integration_flow.zip
 
-      - name: List Files After Checkout
+      - name: List Files And Their Sizes After Checkout
         run: |
           pwd
-          ls
+          ls -lah
           
       - name: Unzip the Zip File
         run: 7z e integration_flow.zip

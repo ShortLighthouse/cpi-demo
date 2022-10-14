@@ -5,7 +5,7 @@ on: push
 env:
   INTEGRATION_FLOW_ID: New_Flow2
   VERSION: " "
-  CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
+  CI_COMMIT_MESSAGE: Add Integration Flow Build Artifacts
   CI_COMMIT_AUTHOR: Continuous Integration  
 
 jobs:
@@ -90,6 +90,7 @@ jobs:
       - name: GIT commit and push to Remote
         run: |
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git add -A
           git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
           git push
 

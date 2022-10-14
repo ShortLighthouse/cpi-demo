@@ -70,7 +70,7 @@ jobs:
           ls -l
           
       - name: Unzip the Zip File
-        run: 7z e integration_flow.zip
+        run: 7z e integration_flow.zip -spf
 
       - name: List Files After Unzip
         run: |

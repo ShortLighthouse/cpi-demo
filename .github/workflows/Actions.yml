@@ -6,7 +6,8 @@ env:
   INTEGRATION_FLOW_ID: New_Flow2
   VERSION: " "
   CI_COMMIT_MESSAGE: Add Integration Flow Build Artifacts
-  CI_COMMIT_AUTHOR: Continuous Integration  
+  CI_COMMIT_AUTHOR: Continuous Integration
+  CI_COMMIT_EMAIL: donotreply@thevoid.com 
 
 jobs:
   get-integration-flow-runtime:
@@ -36,6 +37,8 @@ jobs:
 
       - name: Create and Verify New Tag with Integration Flow Version Number
         run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "{{ env.CI_COMMIT_EMAIL }}"
           git tag -a ${{ env.version }} -m "SAP CPI Integration Flow Version"
 
       - name: Get Zipped Contents of Integration Flow in Base64 Encoded String

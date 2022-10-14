@@ -75,8 +75,15 @@ jobs:
       - name: List Files After Unzip
         run: |
           pwd
-          ls  
-          
+          ls
+
+      - name: Delete zip File
+        run: rm integration_flow.zip
+
+      - name: List Files After zip Deletion
+        run: |
+          pwd
+          ls    
 
 
 

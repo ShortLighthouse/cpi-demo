@@ -53,7 +53,7 @@ jobs:
 
           echo $ZIPPED_CONTENTS
 
-          echo "base64String=${ZIPPED_CONTENTS}" >> $GITHUB_ENV
+          echo "base64String=${ZIPPED_CONTENTS}<<EOF" >> $GITHUB_ENV
 
 #      - name: Base64 Decode to Zip File
 #        uses: kitek/decode-base64-into-file-action@1.0

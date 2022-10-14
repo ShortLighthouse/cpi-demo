@@ -1,6 +1,6 @@
 name: CICD Actions
 
-on: push
+on: create
 
 env:
   INTEGRATION_FLOW_ID: New_Flow2
@@ -21,16 +21,10 @@ jobs:
 
           VERSION=$(jq '.entry.properties.Version' <(echo "${URL_RESPONSE}"))
 
-          echo "Fred"
-
-          echo $VERSION
-
-          echo "Fertangg"
-
           echo "version=${VERSION}" >> $GITHUB_ENV
 
-      - name: Show my version
-        run: 'echo "version: ${{ env.version }}"'
+      - name: Show Version Retrieved
+        run: 'echo "Version: ${{ env.version }}"'
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -43,7 +37,6 @@ jobs:
       - name: Create and Verify New Tag with Integration Flow Version Number
         run: |
           git tag ${{ env.version }}
-          git tag
 
       - name: Get Zipped Contents of Integration Flow in Base64 Encoded String
         run: |

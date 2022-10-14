@@ -88,7 +88,7 @@ jobs:
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
           git add -A
           git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
-          git push
+          git push --tags
 
 
 

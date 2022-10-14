@@ -83,7 +83,13 @@ jobs:
       - name: List Files After zip Deletion
         run: |
           pwd
-          ls    
+          ls   
+
+      - name: Push Repository to Origin
+        run:  |
+          git add -A
+          git commit -m "Add Integration Flow Files"
+          git push
 
 
 

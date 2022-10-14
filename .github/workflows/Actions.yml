@@ -72,10 +72,10 @@ jobs:
       - name: Unzip the Zip File
         run: 7z e integration_flow.zip
 
-#      - name: List Files After Unzip
-#        run: |
-#          pwd
-#          ls  
+      - name: List Files After Unzip
+        run: |
+          pwd
+          ls  
           
 
 

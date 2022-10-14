@@ -54,7 +54,7 @@ jobs:
           echo $ZIPPED_CONTENTS
 
           echo 'BASE64_STRING<<EOF' >> $GITHUB_ENV
-          echo "Fred"<<EOF >> $GITHUB_ENV
+          echo "Fred" >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
 #          $ZIPPED_CONTENTS >> $GITHUB_ENV          
 #          echo 'EOF' >> $GITHUB_ENV

@@ -180,6 +180,7 @@ def Message processException(String title, String type, Message message) {
     def headers = message.getHeaders() as Map<String, Object>;
     def properties = message.getProperties() as Map<String, Object>;
     def ex = properties.get("CamelExceptionCaught");
+    def fedex = def ex = properties.get("CamelExceptionCaught");
 
     def propertiesAsString ="\n";
     properties.each{ it -> propertiesAsString = propertiesAsString + "${it}" + "\n" };

@@ -35,11 +35,14 @@ jobs:
           pwd
           ls
 
-      - name: Create and Verify New Tag with Integration Flow Version Number
-        run: |
-          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-          git config --global user.email "${{ env.CI_COMMIT_EMAIL }}"
-          git tag -a ${{ env.version }} -m "SAP CPI Integration Flow Version"
+#      - name: Create and Verify New Tag with Integration Flow Version Number
+#        run: |
+#          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+#          git config --global user.email "${{ env.CI_COMMIT_EMAIL }}"
+#          git tag -a ${{ env.version }} -m "SAP CPI Integration Flow Version"
+
+      - name: Display secret CLIENT_ID_SECRET_BASE_64
+        run: echo "${{ secrets.CLIENT_ID_SECRET_BASE_64 }}"
 
       - name: Get Zipped Contents of Integration Flow in Base64 Encoded String
         run: |

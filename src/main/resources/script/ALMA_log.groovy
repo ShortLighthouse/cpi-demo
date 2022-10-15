@@ -132,6 +132,7 @@ def Message logCustomHeader(Message message) {
         }
 
     }
+    
     return message;
 }
 

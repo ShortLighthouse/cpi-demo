@@ -42,7 +42,7 @@ jobs:
 #          git tag -a ${{ env.version }} -m "SAP CPI Integration Flow Version"
 
       - name: Display secret CLIENT_ID_SECRET_BASE_64
-        run: echo "${{ secrets.CLIENT_ID_SECRET_BASE_64 }}"
+        run: echo "${{secrets.CLIENT_ID_SECRET_BASE_64}}"
 
       - name: Get Zipped Contents of Integration Flow in Base64 Encoded String
         run: |

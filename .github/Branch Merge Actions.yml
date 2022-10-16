@@ -3,7 +3,7 @@ name: CICD Branch Merge Actions
 on:
   pull_request:
     branches:
-      - main
+      - branch42
     types:
       - closed
 

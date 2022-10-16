@@ -3,8 +3,11 @@ name: CICD Actions
 on: create
 
 env:
-  INTEGRATION_FLOW_ID: New_Flow2
-  VERSION: " "
+  # Put here the name of the integration flow that will be uploaded to the repository
+  INTEGRATION_FLOW_ID: Query_Public_GitHub_Repositories
+  VERSION: ""
+  # This is the ClientID and Client Secret that is used to access the CPI HTTPS Endpoints
+  # It is in the form of ClientID:Client Secret, and is then Base64 encoded.
   CLIENT_ID_SECRET_BASE_64: ${{ secrets.CLIENT_ID_SECRET_BASE_64 }}
   CI_COMMIT_MESSAGE: Add Integration Flow Build Artifacts
   CI_COMMIT_AUTHOR: Continuous Integration

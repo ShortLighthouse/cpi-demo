@@ -2,7 +2,7 @@ name: CICD Branch Merge Actions
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "branch38"]
 
 env:
   # Put here the ID of the integration flow that will be uploaded to the repository

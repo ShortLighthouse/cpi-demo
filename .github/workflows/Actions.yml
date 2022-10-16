@@ -56,7 +56,7 @@ jobs:
         run: |
           ZIPPED_CONTENTS=$(curl --ssl-no-revoke -X GET \
           https://b574385atrial.it-cpitrial03-rt.cfapps.ap21.hana.ondemand.com/http/IntegrationRuntimeArtifacts/ZippedContent -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
-          -H "id: Query_Public_GitHub_Repositories")
+          -H "id: $INTEGRATION_FLOW_ID")
 
           echo "Base 64 Representation of Zip File:"
 

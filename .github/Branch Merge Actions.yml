@@ -33,5 +33,5 @@ jobs:
 
           echo "version=${VERSION}" >> $GITHUB_ENV
 
-      - name: Show Version Retrieved
+      - name: Show Version of currently deployed Integration Flow
         run: 'echo "Version: ${{ env.version }}"'    

@@ -3,9 +3,7 @@ name: CICD Branch Merge Actions
 on:
   pull_request:
     branches:
-      - branch42
-    types:
-      - closed
+      - branch43
 
 env:
   # Put here the ID of the integration flow that will be uploaded to the repository

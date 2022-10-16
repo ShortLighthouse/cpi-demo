@@ -1,4 +1,4 @@
-name: CICD Actions
+name: CICD Branch Creation Actions
 
 on: create
 

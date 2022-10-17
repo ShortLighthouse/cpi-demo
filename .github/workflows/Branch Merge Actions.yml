@@ -19,20 +19,31 @@ env:
   CI_COMMIT_EMAIL: donotreply@thevoid.com 
 
 jobs:
-  deploy-to-cpi:
-  if: github.event.pull_request.merged == true
-  runs-on: ubuntu-latest
-  steps:
-    - name: Get version of Integration Flow to be deployed
-      id: integration_flow_version
-      run: |
-       URL_RESPONSE=$(curl --ssl-no-revoke -X GET \
-        ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/LatestVersion -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
-        -H "id: $INTEGRATION_FLOW_ID") >> $GITHUB_ENV
+  push-integration-flow-to-cpi:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get version of Integration Flow deployed
+        id: integration_flow_version
+        run: |
+         URL_RESPONSE=$(curl --ssl-no-revoke -X GET \
+          ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/LatestVersion -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
+          -H "id: $INTEGRATION_FLOW_ID") >> $GITHUB_ENV
 
-        VERSION=$(jq '.entry.properties.Version' <(echo "${URL_RESPONSE}"))
+          VERSION=$(jq '.entry.properties.Version' <(echo "${URL_RESPONSE}"))
 
-        echo "version=${VERSION}" >> $GITHUB_ENV
+          echo "version=${VERSION}" >> $GITHUB_ENV
 
-    - name: Show Version of currently deployed Integration Flow
-      run: 'echo "Version: ${{ env.version }}"'    
+      - name: Show Version Retrieved
+        run: 'echo "Version: ${{ env.version }}"'
+
+
+
+
+
+
+
+
+   
+
+          

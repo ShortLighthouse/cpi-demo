@@ -60,6 +60,14 @@ jobs:
         run: ls -l
 
         # Base64 encode zip file.
+      - name: Base64 Encode Zip File
+      - uses: frostebite/File-To-Base64@master
+        id: base64Config
+        with:
+          filePath: .integration_flow.zip
+
+      - name: Display Base64 Encoded String
+        run: 'echo "Base64 Encoded Zip file: ${{ steps.base64Config.outputs.base64 }}"'
 
         # Call Integration REST API to update integration flow.
 

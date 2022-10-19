@@ -10,6 +10,7 @@ env:
   INTEGRATION_FLOW_ID: Query_Public_GitHub_Repositories
   VERSION: ""
   BRANCH_SHA: ""
+  BRANCH_NAME: ""
   # This is the URL of the SAP CPI runtime
   CPI_ENDPOINT_URL: ${{ secrets.CPI_ENDPOINT_URL }}
   # This is the ClientID and Client Secret that is used to access the CPI HTTPS Endpoints
@@ -46,6 +47,10 @@ jobs:
         run: |
           BRANCH_SHA=$(git rev-parse HEAD)
           echo "Branch SHA: ${BRANCH_SHA}"
+          BRANCH_NAME=$(git branch --show-current)
+          echo "Branch name: ${BRANCH_NAME}"
+
+
           
 
 

@@ -66,8 +66,8 @@ jobs:
         with:
           filePath: integration_flow.zip
 
-      # - name: Display Base64 Encoded String
-      #  run: 'echo "Base64 Encoded Zip file: ${{ steps.base64Config.outputs.base64 }}"'
+      - name: Display Base64 Encoded String
+        run: 'echo "Base64 Encoded Zip file: ${{ steps.base64Config.outputs.base64 }}"'
 
         # Call Integration REST API to update integration flow.
 

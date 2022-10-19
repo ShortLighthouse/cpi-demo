@@ -50,6 +50,19 @@ jobs:
           BRANCH_NAME=$(git branch --show-current)
           echo "Branch name: ${BRANCH_NAME}"
 
+        # Update metainfo.prop with description containing Branch SHA and Branch name.
+
+        # Create zip file from files and folders.
+      - name: Zip the Files and Folders in the Repository
+        run: 7z a integration_flow.zip ./*
+
+      - name: List files
+        run: ls -l
+
+        # Base64 encode zip file.
+
+        # Call Integration REST API to update integration flow.
+
 
           
 

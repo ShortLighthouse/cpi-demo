@@ -62,7 +62,7 @@ jobs:
         # Base64 encode zip file.
       - name: Base64 Encode Zip File
         id: base64Config
-      - uses: frostebite/File-To-Base64@master
+        uses: frostebite/File-To-Base64@master
         with:
           filePath: integration_flow.zip
 

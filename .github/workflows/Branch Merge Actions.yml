@@ -9,7 +9,7 @@ env:
   # Put here the ID of the integration flow that will be uploaded to the repository
   INTEGRATION_FLOW_ID: Query_Public_GitHub_Repositories
   VERSION: ""
-  BRANCH_HASH: ""
+  BRANCH_SHA: ""
   # This is the URL of the SAP CPI runtime
   CPI_ENDPOINT_URL: ${{ secrets.CPI_ENDPOINT_URL }}
   # This is the ClientID and Client Secret that is used to access the CPI HTTPS Endpoints
@@ -38,10 +38,15 @@ jobs:
       - name: Show Version Retrieved
         run: 'echo "Version: ${{ env.version }}"'
 
-      - name: get branch SHA
+        # Only a single commit is fetched by default, for the ref/SHA that triggered the workflow.
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Display Branch
         run: |
-          BRANCH_HASH=$(git rev-parse origin/main)
-          echo "BRANCH_HASH=${BRANCH_HASH}"
+          BRANCH_SHA=$(git rev-parse HEAD)
+          echo "Branch SHA: ${BRANCH_SHA}"
+          
 
 
 

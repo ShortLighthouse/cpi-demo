@@ -73,7 +73,7 @@ jobs:
       - name: Get CSRF Token
         id: get_csrf_token
         run: |  
-             CSRF_RESPONSE=$(curl --ssl-no-revoke -X GET \
+             CSRF_RESPONSE=$(curl -I --ssl-no-revoke -X GET \
                ${CPI_ENDPOINT_URL}/http/GetCSRFToken -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}") >> $GITHUB_ENV     
              
              echo "csrf_response=${CSRF_RESPONSE}" >>  $GITHUB_ENV

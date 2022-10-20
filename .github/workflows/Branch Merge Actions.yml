@@ -81,7 +81,7 @@ jobs:
              echo "CSRF_RESPONSE: ${CSRF_RESPONSE}"
 
       - name: Show CSRF token retrieved in env context
-        run: 'echo "csrf_response: ${{ env.srf_response }}"'             
+        run:  'echo "csrf_response: ${{ env.csrf_response }}"'          
 
         # Call Integration REST API to update integration flow.
 

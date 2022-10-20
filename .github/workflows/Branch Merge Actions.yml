@@ -69,6 +69,17 @@ jobs:
       - name: Display Base64 Encoded String
         run: 'echo "Base64 Encoded Zip file: ${{ steps.base64Config.outputs.base64 }}"'
 
+        # Call Integration REST API to get a CSRF token
+      - name: Get CSRF Token
+        id: get_csrf_token
+        run: |  
+             CSRF_RESPONSE=$(curl --ssl-no-revoke -X GET \
+               ${CPI_ENDPOINT_URL} -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}") >> $GITHUB_ENV     
+             
+             echo "csrf_response=${CSRF_RESPONSE}" >>  $GITHUB_ENV
+
+             echo "csrf_response: ${{ env.srf_response }}"
+             
         # Call Integration REST API to update integration flow.
 
 

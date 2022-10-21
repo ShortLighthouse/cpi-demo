@@ -73,15 +73,15 @@ jobs:
       - name: Get CSRF Token
         id: get_csrf_token
         run: |  
-             CSRF_RESPONSE=$(curl -I --ssl-no-revoke -X GET \
+             CSRF_TOKEN=$(curl -I --ssl-no-revoke -X GET \
                ${CPI_ENDPOINT_URL}/http/GetCSRFToken -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" | grep -Po 'x-csrf-token: \K[^"]*') >> $GITHUB_ENV     
              
-             echo "csrf_response=${CSRF_RESPONSE}" >>  $GITHUB_ENV
+             echo "csrf_token=${CSRF_TOKEN}" >>  $GITHUB_ENV
 
-             echo "CSRF_RESPONSE: ${CSRF_RESPONSE}"
+             echo "CSRF_TOKEN: ${CSRF_TOKEN}"
 
       - name: Show CSRF token retrieved in env context
-        run:  'echo "csrf_response: ${{ env.csrf_response }}"'          
+        run:  'echo "csrf_token: ${{ env.csrf_token }}"'          
 
         # Call Integration REST API to update integration flow.
 

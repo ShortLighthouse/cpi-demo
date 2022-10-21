@@ -84,6 +84,15 @@ jobs:
         run:  'echo "csrf_token: ${{ env.csrf_token }}"'          
 
         # Call Integration REST API to update integration flow.
+      - name: Push Integration Flow back to CPI
+        id: push_back_to_cpi
+        run: |
+              URL_UPDATE_RESPONSE=$(curl --ssl-no-revoke -X GET \
+              ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
+              -H "Id: $INTEGRATION_FLOW_ID") \
+              -H "X-CSRF-Token: ${{ env.csrf_token }}") >> $GITHUB_ENV
+
+              echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"
 
 
           

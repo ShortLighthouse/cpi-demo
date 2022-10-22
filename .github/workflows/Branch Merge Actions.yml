@@ -69,6 +69,17 @@ jobs:
       - name: Display Base64 Encoded String
         run: 'echo "Base64 Encoded Zip file: ${{ steps.base64Config.outputs.base64 }}"'
 
+      - name: Build JSON Body for update Call
+        id: build_json
+        run: |
+          JSON_STRING=$( jq -n \
+            --arg ac "${{ steps.base64Config.outputs.base64 }}" \
+            '{ArtifactContent: $ac}' )
+
+            echo "JSON_STRING: $JSON_STRING"
+
+            echo "json_string=${JSON_STRING} >> $GITHUB_ENV"
+
         # Call Integration REST API to get a CSRF token
       - name: Get CSRF Token
         id: get_csrf_token

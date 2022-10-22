@@ -87,7 +87,7 @@ jobs:
       - name: Push Integration Flow back to CPI
         id: push_back_to_cpi
         run: |
-            JSON_STRING={\"ArtifactContent\": \"Fred\" }
+            JSON_STRING={"ArtifactContent": "Fred" }
 
             echo "JSON_STRING: ${JSON_STRING}"
      

@@ -73,7 +73,7 @@ jobs:
         id: build_json
         run: |
           JSON_STRING=$( jq -n \
-            --arg ac "${{ steps.base64Config.outputs.base64 }}" \
+            --arg ac ${{ steps.base64Config.outputs.base64 }} \
             '{ArtifactContent: $ac}' )
 
             echo "JSON_STRING: $JSON_STRING"

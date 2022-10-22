@@ -76,7 +76,7 @@ jobs:
             --arg ac ${{ steps.base64Config.outputs.base64 }} \
             '{ArtifactContent: $ac}' )
 
-            echo "json_string=${JSON_STRING}" >> $GITHUB_ENV
+          echo "::set-output name=json_string::${JSON_STRING}"
 
         # Call Integration REST API to get a CSRF token
       - name: Get CSRF Token
@@ -101,7 +101,7 @@ jobs:
               -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
               -H "Id: $INTEGRATION_FLOW_ID" \
               -H "X-CSRF-Token: ${{ env.csrf_token }}" \
-              -d "${{ env.json_string }}") >> $GITHUB_ENV
+              -d "${{ steps.build_json.outputs.json_string }}") >> $GITHUB_ENV
 
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"

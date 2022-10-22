@@ -69,17 +69,6 @@ jobs:
       - name: Display Base64 Encoded String
         run: 'echo "Base64 Encoded Zip file: ${{ steps.base64Config.outputs.base64 }}"'
 
-      - name: Build JSON Body for update Call
-        id: build_json
-        run: |
-          JSON_STRING=$( jq -n \
-            --arg ac ${{ steps.base64Config.outputs.base64 }} \
-            '{ArtifactContent: $ac}' )
-
-          echo "json_string=Fred" >> $GITHUB_OUTPUT
-        # echo "json_string=$JSON_STRING" >> $GITHUB_OUTPUT
-
-
         # Call Integration REST API to get a CSRF token
       - name: Get CSRF Token
         id: get_csrf_token
@@ -98,13 +87,18 @@ jobs:
       - name: Push Integration Flow back to CPI
         id: push_back_to_cpi
         run: |
+            JSON_STRING=$( jq -n \
+            --arg ac ${{ steps.base64Config.outputs.base64 }} \
+            '{ArtifactContent: $ac}' )
+
+            echo "JSON_STRING: ${JSON_STRING}"            
+              
               URL_UPDATE_RESPONSE=$(curl --ssl-no-revoke -X PUT \
               ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
               -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
               -H "Id: $INTEGRATION_FLOW_ID" \
               -H "X-CSRF-Token: ${{ env.csrf_token }}" \
-              -d "${{ steps.build_json.outputs.json_string }}") >> $GITHUB_ENV
-
+              -d "${JSON_STRING}") >> $GITHUB_ENV
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"
 

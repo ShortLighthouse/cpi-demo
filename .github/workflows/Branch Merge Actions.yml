@@ -98,8 +98,9 @@ jobs:
       - name: Push Integration Flow back to CPI
         id: push_back_to_cpi
         run: |
-              URL_UPDATE_RESPONSE=$(curl --ssl-no-revoke -X GET \
-              ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
+              URL_UPDATE_RESPONSE=$(curl --ssl-no-revoke -X PUT \
+              ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
+              -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
               -H "Id: $INTEGRATION_FLOW_ID" \
               -H "X-CSRF-Token: ${{ env.csrf_token }}" \
               -d "${{ steps.base64Config.outputs.base64 }}") >> $GITHUB_ENV

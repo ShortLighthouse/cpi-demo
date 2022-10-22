@@ -74,7 +74,7 @@ jobs:
         run: |
           JSON_STRING=$( jq -n \
             --arg ac "${{ steps.base64Config.outputs.base64 }}" \
-            '{ArtifactContent: $ac}' )
+            '{Name: Fred, ArtifactContent: $ac}' )
 
             echo "JSON_STRING: $JSON_STRING"
 

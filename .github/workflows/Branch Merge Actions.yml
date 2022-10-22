@@ -97,7 +97,7 @@ jobs:
               ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
               -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
               -H "id: $INTEGRATION_FLOW_ID" \
-              -H "X-CSRF-Token: ${{ env.csrf_token }}")
+              -H "X-CSRF-Token: ${{ env.csrf_token }}"
               -d "${JSON_STRING}")
 
 

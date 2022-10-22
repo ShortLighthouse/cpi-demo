@@ -103,7 +103,7 @@ jobs:
               -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
               -H "Id: $INTEGRATION_FLOW_ID" \
               -H "X-CSRF-Token: ${{ env.csrf_token }}" \
-              -d ${{ env.json_string }}) >> $GITHUB_ENV
+              -d '${{ env.json_string }}') >> $GITHUB_ENV
 
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"

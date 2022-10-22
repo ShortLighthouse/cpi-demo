@@ -76,8 +76,6 @@ jobs:
             --arg ac ${{ steps.base64Config.outputs.base64 }} \
             '{ArtifactContent: $ac}' )
 
-            echo "JSON_STRING: $JSON_STRING"
-
             echo "json_string=${JSON_STRING}" >> $GITHUB_ENV
 
         # Call Integration REST API to get a CSRF token

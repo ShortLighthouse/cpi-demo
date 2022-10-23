@@ -93,6 +93,15 @@ jobs:
 
             echo "JSON_STRING: ${JSON_STRING}"
 
+            URL_UPDATE_REQUEST=curl --ssl-no-revoke -X PUT \
+              ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
+              -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
+              -H "id: $INTEGRATION_FLOW_ID" \
+              -H "X-CSRF-Token: ${{ env.csrf_token }}" \
+              -d "${JSON_STRING}"
+
+              echo "URL_UPDATE_REQUEST: ${URL_UPDATE_REQUEST}"
+
             URL_UPDATE_RESPONSE=$(curl --ssl-no-revoke -X PUT \
               ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
               -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \

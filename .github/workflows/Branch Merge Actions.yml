@@ -88,9 +88,7 @@ jobs:
         id: push_back_to_cpi
         run: |
 
-            BASE_64_STRING=${{ steps.base64Config.outputs.base64 }}
-            
-            echo "BASE_64_STRING: ${BASE_64_STRING}" 
+
 
             URL_UPDATE_RESPONSE=$(curl --ssl-no-revoke -X PUT \
               ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
@@ -98,7 +96,7 @@ jobs:
               -H "Content-Type: application/json" \
               -H "id: $INTEGRATION_FLOW_ID" \
               -H "X-CSRF-Token: ${{ env.csrf_token }}" \
-              -d "{\"ArtifactContent\": \"AAB\"}\""
+              -d "{\"ArtifactContent\": \"AAB\"}\"")
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"
 

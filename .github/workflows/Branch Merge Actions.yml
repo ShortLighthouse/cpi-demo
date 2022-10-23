@@ -93,8 +93,7 @@ jobs:
             echo "BASE_64_STRING: ${BASE_64_STRING}" 
 
             JSON_STRING=$( jq -n \
-            --arg ac ${BASE_64_STRING} \
-            '{Name: "Fred", ArtifactContent: $ac}' )
+            '{Name: "Fred", ArtifactContent: "AAB"}' )
 
             echo "JSON_STRING: ${JSON_STRING}"
 

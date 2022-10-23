@@ -87,6 +87,10 @@ jobs:
       - name: Push Integration Flow back to CPI
         id: push_back_to_cpi
         run: |
+
+            BASE_64_STRING=${{ steps.base64Config.outputs.base64 }}
+            echo "BASE_64_STRING: ${BASE_64_STRING}" 
+
             JSON_STRING=$( jq -n \
             --arg ac ${{ steps.base64Config.outputs.base64 }} \
             '{ArtifactContent: $ac}' )

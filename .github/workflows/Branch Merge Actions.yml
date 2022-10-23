@@ -90,7 +90,7 @@ jobs:
 
 
 
-            URL_UPDATE_RESPONSE=$(curl --ssl-no-revoke -X PUT \
+            URL_UPDATE_RESPONSE=$(curl --ssl-no-revoke -X POST \
               ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
               -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
               -H "Content-Type: application/json" \

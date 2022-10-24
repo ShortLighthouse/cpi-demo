@@ -88,32 +88,14 @@ jobs:
         id: push_back_to_cpi
         run: |
 
-            BASE_64_STRING=${{ steps.base64Config.outputs.base64 }}
-            
-            echo "BASE_64_STRING: ${BASE_64_STRING}" 
 
-            JSON_STRING=$( jq -n \
-            --arg ac ${BASE_64_STRING} \
-            '{Name: "Fred", ArtifactContent: $ac}' )
 
-            echo "JSON_STRING: ${JSON_STRING}"
-
-            URL_UPDATE_REQUEST="curl --ssl-no-revoke -X PUT \
-              ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
-              -H \"Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}\" \
-              -H \"id: $INTEGRATION_FLOW_ID\" \
-              -H \"X-CSRF-Token: ${{ env.csrf_token }}\" \
-              -d \"${JSON_STRING}\""
-
-              echo "URL_UPDATE_REQUEST: ${URL_UPDATE_REQUEST}"
-
-            URL_UPDATE_RESPONSE=$(curl --ssl-no-revoke -X PUT \
-              ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
+            URL_UPDATE_RESPONSE=$(curl --ssl-no-revoke -X GET \
+              https://b574385atrial.it-cpitrial03-rt.cfapps.ap21.hana.ondemand.com/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
               -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
               -H "Content-Type: application/json" \
               -H "id: $INTEGRATION_FLOW_ID" \
-              -H "X-CSRF-Token: ${{ env.csrf_token }}" \
-              -d "${JSON_STRING}")
+              -H "X-CSRF-Token: ${{ env.csrf_token }}")
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"
 

@@ -98,7 +98,6 @@ jobs:
       - name: Push Integration Flow back to CPI
         id: push_back_to_cpi
         run: |
-
             URL_UPDATE_RESPONSE=$(curl -v --ssl-no-revoke -X POST \
               ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
               -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \

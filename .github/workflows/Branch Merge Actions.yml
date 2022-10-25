@@ -92,7 +92,9 @@ jobs:
             --arg ac ${BASE_64_STRING} \
             '{Name: "Fred", ArtifactContent: $ac}' )
 
-            echo "${BASE_64_STRING}"> data.json                 
+            echo "${BASE_64_STRING}"> data.json       
+
+            echo "BASE_64_STRING: ${BASE_64_STRING}"    
 
         # Call Integration REST API to update integration flow.
       - name: Push Integration Flow back to CPI
@@ -104,7 +106,7 @@ jobs:
               -H "Content-Type: application/json" \
               -H "id: $INTEGRATION_FLOW_ID" \
               -H "X-CSRF-Token: ${{ env.csrf_token }}" \
-              -d @data.json)
+              -d @data.json )
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"
 

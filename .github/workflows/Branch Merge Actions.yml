@@ -107,8 +107,7 @@ jobs:
               -H "id: $INTEGRATION_FLOW_ID" \
               -H "X-CSRF-Token: ${{ env.csrf_token }}" \
               -d @<(cat <<EOF
-              ${JSON_STRING}
-              EOF))
+              ${JSON_STRING}))
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"
 

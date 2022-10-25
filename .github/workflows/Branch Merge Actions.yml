@@ -103,8 +103,8 @@ jobs:
               -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
               -H "Content-Type: application/json" \
               -H "id: $INTEGRATION_FLOW_ID" \
-              -H "X-CSRF-Token: ${{ env.csrf_token }}") \
-              -d @data.json
+              -H "X-CSRF-Token: ${{ env.csrf_token }}" \
+              -d @data.json)
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"
 

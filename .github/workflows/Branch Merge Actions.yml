@@ -92,7 +92,7 @@ jobs:
             --arg ac ${BASE_64_STRING} \
             '{Name: "Fred", ArtifactContent: $ac}' )
 
-            echo"${BASE_64_STRING}"> data.json                 
+            echo "${BASE_64_STRING}"> data.json                 
 
         # Call Integration REST API to update integration flow.
       - name: Push Integration Flow back to CPI

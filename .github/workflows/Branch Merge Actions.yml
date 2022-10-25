@@ -106,7 +106,10 @@ jobs:
               -H "Content-Type: application/json" \
               -H "id: $INTEGRATION_FLOW_ID" \
               -H "X-CSRF-Token: ${{ env.csrf_token }}" \
-              -d \@data.json )
+              -d \@<(cat << EOF
+              ${JSON_STRING}
+              EOF
+              ) )
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"
 

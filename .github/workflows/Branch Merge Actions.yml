@@ -81,21 +81,30 @@ jobs:
              echo "CSRF_TOKEN: ${CSRF_TOKEN}"
 
       - name: Show CSRF token retrieved in env context
-        run:  'echo "csrf_token: ${{ env.csrf_token }}"'          
+        run:  'echo "csrf_token: ${{ env.csrf_token }}"'  
+
+      - name: Create JSON Payload
+        id: create_json_payload
+        run: |
+            BASE_64_STRING=${{ steps.base64Config.outputs.base64 }}
+            
+            JSON_STRING=$( jq -n \
+            --arg ac ${BASE_64_STRING} \
+            '{Name: "Fred", ArtifactContent: $ac}' )
+
+            echo"${BASE_64_STRING}"> data.json                 
 
         # Call Integration REST API to update integration flow.
       - name: Push Integration Flow back to CPI
         id: push_back_to_cpi
         run: |
-
-
-
-            URL_UPDATE_RESPONSE=$(curl --ssl-no-revoke -X GET \
-              https://b574385atrial.it-cpitrial03-rt.cfapps.ap21.hana.ondemand.com/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
+            URL_UPDATE_RESPONSE=$(curl -v --ssl-no-revoke -X POST \
+              ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
               -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
               -H "Content-Type: application/json" \
               -H "id: $INTEGRATION_FLOW_ID" \
-              -H "X-CSRF-Token: ${{ env.csrf_token }}")
+              -H "X-CSRF-Token: ${{ env.csrf_token }}") \
+              -d @data.json
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"
 

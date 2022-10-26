@@ -114,16 +114,3 @@ jobs:
               -H "X-CSRF-Token: ${{ env.csrf_token }}")
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"
-
-          
-
-
-
-
-
-
-
-
-   
-
-          

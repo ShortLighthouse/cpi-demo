@@ -103,6 +103,7 @@ jobs:
           echo EOF >> json_string.json
           pwd
           ls -l
+          cat /home/runner/work/ci-cd/ci-cd/json_string.json
 
         # Call Integration REST API to update integration flow.
       - name: Push Integration Flow back to CPI

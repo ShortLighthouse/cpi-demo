@@ -106,6 +106,8 @@ jobs:
             -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
             -d @data.json) >> $GITHUB_ENV
 
+            echo "JSON_TO_CPI: ${JSON_TO_CPI}" 
+
 
 
         # Call Integration REST API to update integration flow.

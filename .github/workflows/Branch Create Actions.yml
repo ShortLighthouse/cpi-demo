@@ -4,7 +4,7 @@ on: create
 
 env:
   # Put here the ID of the integration flow that will be uploaded to the repository
-  INTEGRATION_FLOW_ID: New_Flow2
+  INTEGRATION_FLOW_ID: Query_Public_GitHub_Repositories
   VERSION: ""
   # This is the URL of the SAP CPI runtime
   CPI_ENDPOINT_URL: ${{ secrets.CPI_ENDPOINT_URL }}
@@ -23,9 +23,8 @@ jobs:
         id: integration_flow_version
         run: |
          URL_RESPONSE=$(curl --ssl-no-revoke -X GET \
-          ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/LatestVersion \
-          -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
-          -H "id: ${INTEGRATION_FLOW_ID}") >> $GITHUB_ENV
+          ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/LatestVersion -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
+          -H "id: $INTEGRATION_FLOW_ID") >> $GITHUB_ENV
 
           VERSION=$(jq '.entry.properties.Version' <(echo "${URL_RESPONSE}"))
 
@@ -103,7 +102,6 @@ jobs:
           git add -A
           git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
           git push --tags
-
 
 
 

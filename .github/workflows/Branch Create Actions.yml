@@ -102,12 +102,3 @@ jobs:
           git add -A
           git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
           git push --tags
-
-
-
-
-
-
-   
-
-          

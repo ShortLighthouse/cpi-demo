@@ -100,7 +100,6 @@ jobs:
         id: create_json_file
         run: |
           ${JSON_STRING} > json_string.json
-          cat EOF >> json_string.json
           pwd
           ls -l
 

@@ -23,8 +23,9 @@ jobs:
         id: integration_flow_version
         run: |
          URL_RESPONSE=$(curl --ssl-no-revoke -X GET \
-          ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/LatestVersion -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
-          -H "id: $INTEGRATION_FLOW_ID") >> $GITHUB_ENV
+          ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/LatestVersion \
+          -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
+          -H "id: ${INTEGRATION_FLOW_ID}") >> $GITHUB_ENV
 
           VERSION=$(jq '.entry.properties.Version' <(echo "${URL_RESPONSE}"))
 

@@ -101,7 +101,6 @@ jobs:
         run: |
           touch json_string.json
           echo "${JSON_STRING}" > json_string.json
-          cat > json_string.json << EOF
 
           pwd
           ls -l

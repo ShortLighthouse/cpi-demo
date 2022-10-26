@@ -94,7 +94,15 @@ jobs:
 
             echo "${BASE_64_STRING}"> data.json       
 
-            echo "BASE_64_STRING: ${BASE_64_STRING}"    
+            echo "BASE_64_STRING: ${BASE_64_STRING}"   
+
+      - name: Write JSON String to File and Verify Existence
+        id: create_json_file
+        run: |
+          ${JSON_STRING} > json_string.json
+          cat EOF >> json_string.json
+          pwd
+          ls -l
 
         # Call Integration REST API to update integration flow.
       - name: Push Integration Flow back to CPI
@@ -106,7 +114,7 @@ jobs:
               -H "Content-Type: application/json" \
               -H "id: $INTEGRATION_FLOW_ID" \
               -H "X-CSRF-Token: ${{ env.csrf_token }}" \
-              -d @<(cat << ${JSON_STRING}))
+              -d @<./json_string.json )
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"
 

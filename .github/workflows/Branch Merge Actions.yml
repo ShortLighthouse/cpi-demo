@@ -104,7 +104,7 @@ jobs:
 
           pwd
           ls -l
-          cat json_string.json
+          cat ./json_string.json
 
         # Call Integration REST API to update integration flow.
       - name: Push Integration Flow back to CPI

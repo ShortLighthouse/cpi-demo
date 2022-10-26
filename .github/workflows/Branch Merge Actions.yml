@@ -100,7 +100,7 @@ jobs:
         id: create_json_file
         run: |
           touch json_string.json
-          ${JSON_STRING} > json_string.json
+          ${JSON_STRING} >> json_string.json
 
           pwd
           ls -l

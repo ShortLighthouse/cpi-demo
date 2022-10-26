@@ -94,18 +94,16 @@ jobs:
 
             echo "${BASE_64_STRING}"> data.json       
 
-            echo "BASE_64_STRING: ${BASE_64_STRING}"   
+            echo "BASE_64_STRING: ${BASE_64_STRING}" 
 
-      - name: Write JSON String to File and Verify Existence
-        id: create_json_file
-        run: |
-          touch json_string.json
-          echo "${JSON_STRING}" > json_string.json
+            touch json_string.json
 
-          pwd
-          ls -l
-          cat json_string.json
-          cat data.json
+            echo "${JSON_STRING}" > json_string.json
+
+            pwd
+            ls -l
+            cat json_string.json
+            cat data.json
 
         # Call Integration REST API to update integration flow.
       - name: Push Integration Flow back to CPI

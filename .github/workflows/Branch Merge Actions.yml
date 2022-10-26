@@ -101,7 +101,7 @@ jobs:
         run: |
           touch json_string.json
           ${JSON_STRING} > json_string.json
-          echo EOF >> json_string.json
+
           pwd
           ls -l
           cat /home/runner/work/ci-cd/ci-cd/json_string.json

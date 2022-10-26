@@ -7,7 +7,7 @@ on:
 
 env:
   # Put here the ID of the integration flow that will be uploaded to the repository
-  INTEGRATION_FLOW_ID: Query_Public_GitHub_Repositories
+  INTEGRATION_FLOW_ID: New_Flow2
   VERSION: ""
   BRANCH_SHA: ""
   BRANCH_NAME: ""

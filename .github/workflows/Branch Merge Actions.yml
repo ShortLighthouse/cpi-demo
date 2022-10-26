@@ -99,7 +99,7 @@ jobs:
             touch json_string.json
 
             echo "${JSON_STRING}" > json_string.json
-
+            cat > json.string.json << EOF
             pwd
             ls -l
             cat json_string.json

@@ -99,6 +99,7 @@ jobs:
       - name: Write JSON String to File and Verify Existence
         id: create_json_file
         run: |
+          touch json_string.json
           ${JSON_STRING} > json_string.json
           echo EOF >> json_string.json
           pwd

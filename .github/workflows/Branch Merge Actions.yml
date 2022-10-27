@@ -57,7 +57,7 @@ jobs:
         run: 7z a integration_flow.zip ./*
 
       - name: List files
-        run: ls -l
+        run: ls -l -a
 
         # Base64 encode zip file.
       - name: Base64 Encode Zip File
@@ -122,4 +122,3 @@ jobs:
               -d @json_string.txt )
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"
-              

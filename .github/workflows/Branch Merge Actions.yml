@@ -56,7 +56,7 @@ jobs:
       - name: Zip the Files and Folders in the Repository
         run: |
           7z a integration_flow.zip ./*
-          7z u integration_flow.zip ?properties
+          7z u integration_flow.zip ?project
 
       - name: List files
         run: ls -l -a

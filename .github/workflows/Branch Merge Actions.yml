@@ -108,9 +108,6 @@ jobs:
             -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
             -d @json_string.txt) >> $GITHUB_ENV
 
-            echo "JSON_TO_CPI: ${JSON_TO_CPI}" 
-
-
         # Call Integration REST API to update integration flow.
       - name: Push Integration Flow back to CPI
         id: push_back_to_cpi
@@ -120,7 +117,6 @@ jobs:
               -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
               -H "Content-Type: application/json" \
               -H "id: $INTEGRATION_FLOW_ID" \
-              -H "X-CSRF-Token: ${{ env.csrf_token }}" \
-              -d @json_string.txt )
+              -H "X-CSRF-Token: ${{ env.csrf_token }}")
 
               echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"

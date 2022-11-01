@@ -54,10 +54,12 @@ jobs:
 
         # Create zip file from files and folders.
       - name: Zip the Files and Folders in the Repository
-        run: 7z a integration_flow.zip ./*
+        run: |
+          7z a integration_flow.zip ./*
+          7z u integration_flow.zip ?project
 
       - name: List files
-        run: ls -l
+        run: ls -l -a
 
         # Base64 encode zip file.
       - name: Base64 Encode Zip File
@@ -105,9 +107,6 @@ jobs:
             JSON_TO_CPI=$(curl --ssl-no-revoke -X GET ${CPI_ENDPOINT_URL}/http/GitHub/Data \
             -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
             -d @json_string.txt) >> $GITHUB_ENV
-
-            echo "JSON_TO_CPI: ${JSON_TO_CPI}" 
-
 
         # Call Integration REST API to update integration flow.
       - name: Push Integration Flow back to CPI

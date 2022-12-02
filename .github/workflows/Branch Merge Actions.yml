@@ -55,8 +55,9 @@ jobs:
         # Create zip file from files and folders.
       - name: Zip the Files and Folders in the Repository
         run: |
-          7z a integration_flow.zip ./*
+          7z a integration_flow.zip ./* -x!img 
           7z u integration_flow.zip ?project
+          7z u integration_flow.zip ?README.MD
 
       - name: List files
         run: ls -l -a

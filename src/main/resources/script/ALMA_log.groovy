@@ -25,7 +25,6 @@ import groovy.xml.XmlUtil;
 @Field String PLAIN_EXCEPTION_LOG = 'PLAIN Exception';
 @Field String NO_BODY_LOG = 'No Body';
 @Field String EMPTY_IDOC_LOG = 'Empty IDoc';
-@Field String NULL_FILE = 'Null file';
 
 def Boolean isDebug(Message message) {
     def isDebug = false;

@@ -29,6 +29,7 @@ import groovy.xml.XmlUtil;
 
 
 
+
 def Boolean isDebug(Message message) {
     def isDebug = false;
 

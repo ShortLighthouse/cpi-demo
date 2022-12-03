@@ -27,6 +27,7 @@ import groovy.xml.XmlUtil;
 @Field String EMPTY_IDOC_LOG = 'Empty IDoc';
 
 
+
 def Boolean isDebug(Message message) {
     def isDebug = false;
 

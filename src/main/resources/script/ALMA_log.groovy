@@ -27,6 +27,7 @@ import groovy.xml.XmlUtil;
 @Field String EMPTY_IDOC_LOG = 'Empty IDoc';
 
 //  Test comment
+//  Test comment2
 
 
 

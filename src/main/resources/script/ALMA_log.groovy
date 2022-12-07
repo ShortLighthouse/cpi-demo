@@ -27,6 +27,10 @@ import groovy.xml.XmlUtil;
 @Field String EMPTY_IDOC_LOG = 'Empty IDoc';
 
 // Test comment new 1
+// Test comment new 2
+// Test comment new 3
+// Test comment new 4
+// Test comment new 5
 
 def Boolean isDebug(Message message) {
     def isDebug = false;

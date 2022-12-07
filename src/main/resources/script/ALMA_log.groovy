@@ -26,12 +26,7 @@ import groovy.xml.XmlUtil;
 @Field String NO_BODY_LOG = 'No Body';
 @Field String EMPTY_IDOC_LOG = 'Empty IDoc';
 
-//  Test comment
-//  Test comment2
-
-
-
-
+// Test comment new 1
 
 def Boolean isDebug(Message message) {
     def isDebug = false;

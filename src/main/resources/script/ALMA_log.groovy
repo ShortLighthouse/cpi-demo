@@ -51,6 +51,7 @@ import groovy.xml.XmlUtil;
 // Test comment new 23
 // Test comment new 24
 // Test comment new 25
+// Test comment new 26
 
 def Boolean isDebug(Message message) {
     def isDebug = false;

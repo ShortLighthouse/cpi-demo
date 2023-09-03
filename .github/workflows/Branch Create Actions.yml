@@ -4,7 +4,7 @@ on: create
 
 env:
   # Put here the ID of the integration flow that will be uploaded to the repository
-  INTEGRATION_FLOW_ID: Query_Public_GitHub_Repositories
+  INTEGRATION_FLOW_ID: Test_Repository
   VERSION: ""
   # This is the URL of the SAP CPI runtime
   CPI_ENDPOINT_URL: ${{ secrets.CPI_ENDPOINT_URL }}

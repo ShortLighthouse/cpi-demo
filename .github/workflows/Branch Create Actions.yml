@@ -8,6 +8,10 @@ env:
   VERSION: ""
   # This is the URL of the SAP CPI runtime
   CPI_ENDPOINT_URL: ${{ secrets.CPI_ENDPOINT_URL }}
+
+  # This is the URL of the SAP API runtime
+  API_ENDPOINT_URL: ${{ secrets.API_ENDPOINT_URL }}
+  
   # This is the ClientID and Client Secret that is used to access the CPI HTTPS Endpoints
   # It is in the form of ClientID:Client Secret, and is then Base64 encoded.
   CLIENT_ID_SECRET_BASE_64: ${{ secrets.CLIENT_ID_SECRET_BASE_64 }}
@@ -24,7 +28,7 @@ jobs:
         run: |
          URL_RESPONSE=$(curl --ssl-no-revoke -X GET \
           ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/LatestVersion -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
-          -H "id: $INTEGRATION_FLOW_ID") >> $GITHUB_ENV
+          -H "id: $INTEGRATION_FLOW_ID" -H "api_endpoint_url: ${API_ENDPOINT_URL}") >> $GITHUB_ENV
 
           VERSION=$(jq '.entry.properties.Version' <(echo "${URL_RESPONSE}"))
 

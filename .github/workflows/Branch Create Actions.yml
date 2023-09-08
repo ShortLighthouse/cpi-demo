@@ -61,7 +61,7 @@ jobs:
         run: |
           ZIPPED_CONTENTS=$(curl --ssl-no-revoke -X GET \
           ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/ZippedContent -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
-          -H "id: $INTEGRATION_FLOW_ID")
+          -H "id: $INTEGRATION_FLOW_ID" -H "api_endpoint_url: ${API_ENDPOINT_URL}")
   
           echo "Base 64 Representation of Zip File:"
   

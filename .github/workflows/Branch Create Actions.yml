@@ -80,4 +80,20 @@ jobs:
       - name: List Files And Their Sizes After Checkout
         run: |
           pwd
-          ls -l          
+          ls -l
+
+          - name: Unzip the Zip File
+          run: 7z e integration_flow.zip -spf -aoa
+  
+      - name: List Files After Unzip
+        run: |
+          pwd
+          ls
+
+      - name: Delete zip File
+        run: rm integration_flow.zip
+  
+      - name: List Files After zip Deletion
+        run: |
+          pwd
+          ls

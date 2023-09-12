@@ -82,8 +82,8 @@ jobs:
           pwd
           ls -l
 
-          - name: Unzip the Zip File
-          run: 7z e integration_flow.zip -spf -aoa
+      - name: Unzip the Zip File
+        run: 7z e integration_flow.zip -spf -aoa
   
       - name: List Files After Unzip
         run: |

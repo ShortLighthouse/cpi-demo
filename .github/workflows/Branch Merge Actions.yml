@@ -44,4 +44,26 @@ jobs:
       - name: Show Version Retrieved
         run: 'echo "Version: ${{ env.version }}"'
 
-        
+      # Only a single commit is fetched by default, for the ref/SHA that triggered the workflow.
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Display Branch
+        run: |
+          BRANCH_SHA=$(git rev-parse HEAD)
+          echo "Branch SHA: ${BRANCH_SHA}"
+          BRANCH_NAME=$(git branch --show-current)
+          echo "Branch name: ${BRANCH_NAME}"
+
+
+      # Update metainfo.prop with description containing Branch SHA and Branch name.
+
+      # Create zip file from files and folders.
+      - name: Zip the Files and Folders in the Repository
+        run: |
+          7z a integration_flow.zip ./* -x!images 
+          7z u integration_flow.zip ?project
+          7z u integration_flow.zip ?README.md
+
+      - name: List files
+        run: ls -l -a

@@ -67,3 +67,38 @@ jobs:
 
       - name: List files
         run: ls -l -a
+
+
+
+        # Base64 encode zip file.
+      - name: Base64 Encode Zip File
+        id: base64Config
+        uses: frostebite/File-To-Base64@master
+        with:
+          filePath: integration_flow.zip
+
+      - name: Display Base64 Encoded String
+        run: 'echo "Base64 Encoded Zip file: ${{ steps.base64Config.outputs.base64 }}"'
+
+      - name: Create JSON Payload
+        id: create_json_payload
+        run: |
+            BASE_64_STRING=${{ steps.base64Config.outputs.base64 }}
+            
+            JSON_STRING=$( jq -n \
+            --arg ac ${BASE_64_STRING} \
+            '{Name: "Fred", ArtifactContent: $ac}' )
+
+            echo "${BASE_64_STRING}"> data.json       
+
+            echo "BASE_64_STRING: ${BASE_64_STRING}" 
+
+            echo "${JSON_STRING}" > json_string.txt
+            pwd
+            ls -l
+            cat json_string.txt
+            cat data.json
+
+            JSON_TO_CPI=$(curl --ssl-no-revoke -X GET ${CPI_ENDPOINT_URL}/http/GitHub/Data \
+            -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
+            -d @json_string.txt) >> $GITHUB_ENV        

@@ -101,4 +101,19 @@ jobs:
 
             JSON_TO_CPI=$(curl --ssl-no-revoke -X GET ${CPI_ENDPOINT_URL}/http/GitHub/Data \
             -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
-            -d @json_string.txt) >> $GITHUB_ENV        
+            -d @json_string.txt) >> $GITHUB_ENV
+            
+        # Call Integration REST API to update integration flow.
+      - name: Push Integration Flow back to CPI
+        id: push_back_to_cpi
+        run: |
+            URL_UPDATE_RESPONSE=$(curl -v --ssl-no-revoke  -X POST \
+              ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/UpdateIntegrationFlow \
+              -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
+              -H "Content-Type: application/json" \
+              -H "id: $INTEGRATION_FLOW_ID" \
+              -H "api_endpoint_url: ${API_ENDPOINT_URL}" \
+              -d @json_string.txt )
+
+              echo "URL_UPDATE_RESPONSE: ${URL_UPDATE_RESPONSE}"
+              

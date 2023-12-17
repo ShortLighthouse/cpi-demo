@@ -34,8 +34,8 @@ jobs:
 
          echo "version=${VERSION}" >> $GITHUB_ENV
 
-#      - name: Show Version Retrieved
-#        run: 'echo "Version: ${{ env.version }}"'
+      - name: Show Version Retrieved
+        run: 'echo "Version: ${{ env.version }}"'
 #
 #      - name: Checkout
 #        uses: actions/checkout@v3

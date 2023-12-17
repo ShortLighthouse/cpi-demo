@@ -30,9 +30,9 @@ jobs:
           ${CPI_ENDPOINT_URL}/http/IntegrationRuntimeArtifacts/LatestVersion -H "Authorization: Basic ${{ env.CLIENT_ID_SECRET_BASE_64 }}" \
           -H "id: $INTEGRATION_FLOW_ID" -H "api_endpoint_url: ${API_ENDPOINT_URL}") >> $GITHUB_ENV
 
-#        VERSION=$(jq '.entry.properties.Version' <(echo "${URL_RESPONSE}"))
+         VERSION=$(jq '.entry.properties.Version' <(echo "${URL_RESPONSE}"))
 
-#        echo "version=${VERSION}" >> $GITHUB_ENV
+         echo "version=${VERSION}" >> $GITHUB_ENV
 
 #      - name: Show Version Retrieved
 #        run: 'echo "Version: ${{ env.version }}"'

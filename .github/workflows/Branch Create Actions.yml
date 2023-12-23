@@ -36,14 +36,14 @@ jobs:
 
       - name: Show Version Retrieved
         run: 'echo "Version: ${{ env.version }}"'
-#
-#      - name: Checkout
-#        uses: actions/checkout@v3
-#
-#      - name: List Files After Checkout
-#        run: |
-#          pwd
-#          ls
+ 
+      - name: Checkout
+        uses: actions/checkout@v3
+ 
+      - name: List Files After Checkout
+        run: |
+          pwd
+          ls
 
 #      - name: Create and Verify New Tag with Integration Flow Version Number
 #        run: |

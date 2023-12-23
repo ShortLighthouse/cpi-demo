@@ -1,11 +1,8 @@
 Manifest-Version: 1.0
-SAP-RuntimeProfile: iflmap
 Bundle-SymbolicName: Test_Repository; singleton:=true
-Bundle-Name: Test Repository
-Bundle-Version: 1.0.1
 Bundle-ManifestVersion: 2
 Origin-Bundle-SymbolicName: Test_Repository
-SAP-NodeType: IFLMAP
+Origin-Bundle-Version: 1.0.1
 Import-Package: com.sap.esb.application.services.cxf.interceptor,com.s
  ap.esb.security,com.sap.it.op.agent.api,com.sap.it.op.agent.collector
  .camel,com.sap.it.op.agent.collector.cxf,com.sap.it.op.agent.mpl,java
@@ -33,6 +30,11 @@ Import-Package: com.sap.esb.application.services.cxf.interceptor,com.s
  dempotency.reorg,javax.sql,org.apache.camel.processor.idempotent.jdbc
  ,org.osgi.service.blueprint;version="[1.0.0,2.0.0)"
 Origin-Bundle-Name: Test Repository
+SAP-RuntimeProfile: iflmap
+Bundle-Name: Test Repository
+Bundle-Version: 1.0.2
+SAP-NodeType: IFLMAP
+Origin-ModifiedDate: 1693760646684
 SAP-BundleType: IntegrationFlow
 Import-Service: com.sap.esb.webservice.audit.log.AuditLogger,com.sap.e
  sb.security.KeyManagerFactory;multiple:=false,com.sap.esb.security.Tr
